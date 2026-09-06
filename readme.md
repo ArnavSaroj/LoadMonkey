@@ -1,0 +1,1 @@
+This is my attempt to make a distributed load tester in Golang.The name is LoadMonkey inspired from Chaos Monkey from netflix
