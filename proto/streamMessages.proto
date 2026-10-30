@@ -1,0 +1,44 @@
+// this is streaming message grpc proto file from the worker to the central cordinator of live results
+
+syntax="proto3";
+
+package streamMessages;
+
+option go_package="proto/dataStreamingFiles"
+
+message messageRequest{
+
+uint workerId=1;
+uint testId=2;
+uint testDuration=3;//in seconds 
+string method=4;//https hardcoded for now
+//string body;
+string url=5;
+string timeoutRequest=6;//time after which worker assumes request has failed default 5 seconds
+string rampConfig=7  ;//static only for now 
+
+}
+
+message messageResponse{
+
+uint workerId=1;
+uint testId=2;
+int32 p99=3;
+int32 p95=4;
+int32 p90=5;
+int32 latency=6;
+int32 failedRequests=7;//failed requests are request with no response
+int32 totalRequests=8;
+
+
+}
+
+
+service dataStreamingService{
+
+rpc getMetricsReadings(messageRequest)returns(stream messageResponse);
+
+}
+
+
+
