@@ -9,3 +9,9 @@ type Metrics struct{
 	total_requests int
 
 }
+//starting initialise too 0
+func New_metric()(*Metrics){
+
+return &Metrics{};
+
+}

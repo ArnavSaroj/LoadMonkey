@@ -29,11 +29,28 @@ const (
 
 
 type Worker struct {
-	id    int 
-	mutex sync.Mutex
-	worker_status worker_status
-region_id region
+	Id    int 
+	Mutex sync.Mutex
+	Worker_status worker_status
+Region_id region
 Metrics metric.Metrics
 Config config.Config
 
 }
+
+func  NewWorker(id int,region_id region,config config.Config) (*Worker){
+
+return &Worker{
+Id:id,
+Mutex: sync.Mutex{},
+Worker_status: 0,
+Metrics:*metric.New_metric() ,
+Config: config,
+}
+
+}
+
+
+
+
+

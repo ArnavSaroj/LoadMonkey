@@ -4,13 +4,13 @@ syntax="proto3";
 
 package streamMessages;
 
-option go_package="proto/dataStreamingFiles"
+option go_package="proto/dataStreamingFiles";
 
 message messageRequest{
 
-uint workerId=1;
-uint testId=2;
-uint testDuration=3;//in seconds 
+uint32 workerId=1;
+uint32 testId=2;
+uint32 testDuration=3;//in seconds 
 string method=4;//https hardcoded for now
 //string body;
 string url=5;
@@ -21,8 +21,8 @@ string rampConfig=7  ;//static only for now
 
 message messageResponse{
 
-uint workerId=1;
-uint testId=2;
+uint32 workerId=1;
+uint32 testId=2;
 int32 p99=3;
 int32 p95=4;
 int32 p90=5;
